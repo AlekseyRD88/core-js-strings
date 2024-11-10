@@ -147,11 +147,7 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
-  const index = str.indexOf(value);
-  if (index !== -1) {
-    return str.slice(0, index) + str.slice(index + value.length);
-  }
-  return str;
+
 }
 
 /**
@@ -169,11 +165,10 @@ function removeFirstOccurrences(str, value) {
 function removeLastOccurrences(str, value) {
   const lastIndex = str.lastIndexOf(value);
   if (lastIndex !== -1) {
-    return (
-      str.substring(0, lastIndex) + str.substring(lastIndex + value.length)
-    );
+    return str.substring(0, lastIndex) + str.substring(lastIndex + value.length);
+  } else {
+    return str;
   }
-  return str;
 }
 
 /**
@@ -190,7 +185,7 @@ function removeLastOccurrences(str, value) {
  */
 function sumOfCodes(str) {
   let sum = 0;
-  for (let i = 0; i < str.length; i += 1) {
+  for (let i = 0; i < str.length; i++) {
     sum += str.charCodeAt(i);
   }
   return sum;
@@ -240,9 +235,7 @@ function endsWith(str, substr) {
  *   formatTime(0, 0) => "00:00"
  */
 function formatTime(minutes, seconds) {
-  return `${minutes.toString().padStart(2, '0')}:${seconds
-    .toString()
-    .padStart(2, '0')}`;
+  return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 /**
@@ -307,7 +300,7 @@ function containsSubstring(str, substring) {
 function countVowels(str) {
   const vowels = 'aeiouyAEIOUY';
   let count = 0;
-  for (const char of str) {
+  for (let char of str) {
     if (vowels.includes(char)) {
       count++;
     }
@@ -368,10 +361,7 @@ function findLongestWord(sentence) {
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
 function reverseWords(str) {
-  return str
-    .split(' ')
-    .map((word) => word.split('').reverse().join(''))
-    .join(' ');
+  return str.split(' ').map(word => word.split('').reverse().join('')).join(' ');
 }
 
 /**
@@ -386,12 +376,7 @@ function reverseWords(str) {
  *   invertCase('12345') => '12345'
  */
 function invertCase(str) {
-  return str
-    .split('')
-    .map((char) =>
-      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
-    )
-    .join('');
+  return str.split('').map(char => char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()).join('');
 }
 
 /**
@@ -459,7 +444,7 @@ function unbracketTag(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.split(';').map((email) => email.trim());
+  return str.split(';').map(email => email.trim());
 }
 
 /**
@@ -480,14 +465,14 @@ function extractEmails(str) {
  */
 function encodeToRot13(str) {
   let result = '';
-  for (let i = 0; i < str.length; i += 1) {
+  for (let i = 0; i < str.length; i++) {
     const char = str[i];
     const code = char.charCodeAt(0);
 
-    if (code >= 65 && code <= 90) {
-      result += String.fromCharCode(((code - 65 + 13) % 26) + 65);
-    } else if (code >= 97 && code <= 122) {
-      result += String.fromCharCode(((code - 97 + 13) % 26) + 97);
+    if (code >= 65 && code <= 90) { // Uppercase letters
+      result += String.fromCharCode((code - 65 + 13) % 26 + 65);
+    } else if (code >= 97 && code <= 122) { // Lowercase letters
+      result += String.fromCharCode((code - 97 + 13) % 26 + 97);
     } else {
       result += char; // Non-alphabetic characters
     }
@@ -521,24 +506,10 @@ function encodeToRot13(str) {
  */
 function getCardId(value) {
   const suits = ['♣', '♦', '♥', '♠'];
-  const ranks = [
-    'A',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    'J',
-    'Q',
-    'K',
-  ];
+  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-  const suitIndex = Math.floor(value / 13);
-  const rankIndex = value % 13;
+  const suitIndex = Math.floor(index / 13);
+  const rankIndex = index % 13;
 
   return `${ranks[rankIndex]}${suits[suitIndex]}`;
 }
