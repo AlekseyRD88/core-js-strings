@@ -20,7 +20,7 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(value) {
-  return value ? value.length : 0;
+  return value.length;
 }
 
 /**
@@ -131,7 +131,7 @@ function removeTrailingWhitespaces(value) {
  *   repeatString('abc', -2) => ''
  */
 function repeatString(str, times) {
-  return times > 0 ? str.repeat(times) : '';
+  return str.repeat(times);
 }
 
 /**

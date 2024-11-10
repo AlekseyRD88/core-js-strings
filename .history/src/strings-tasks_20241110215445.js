@@ -20,7 +20,7 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(value) {
-  return value ? value.length : 0;
+  return value.length;
 }
 
 /**
@@ -38,7 +38,7 @@ function getStringLength(value) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof value === 'string' || value instanceof String;
+  return typeof value === 'string';
 }
 
 /**
@@ -131,7 +131,7 @@ function removeTrailingWhitespaces(value) {
  *   repeatString('abc', -2) => ''
  */
 function repeatString(str, times) {
-  return times > 0 ? str.repeat(times) : '';
+  return str.repeat(times);
 }
 
 /**
@@ -340,12 +340,7 @@ function isPalindrome(str) {
  *   findLongestWord('No words here') => 'words'
  */
 function findLongestWord(sentence) {
-  const words = sentence.split(' ');
-  const longestWord = words.reduce(
-    (longest, current) => (current.length > longest.length ? current : longest),
-    ''
-  );
-  return longestWord;
+
 }
 
 /**
