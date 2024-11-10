@@ -505,13 +505,7 @@ function encodeToRot13(str) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const suits = ['♣', '♦', '♥', '♠'];
-  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-  const suitIndex = Math.floor(index / 13);
-  const rankIndex = index % 13;
-
-  return `${ranks[rankIndex]}${suits[suitIndex]}`;
 }
 
 module.exports = {

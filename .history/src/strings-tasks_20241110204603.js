@@ -376,7 +376,7 @@ function reverseWords(str) {
  *   invertCase('12345') => '12345'
  */
 function invertCase(str) {
-  return str.split('').map(char => char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()).join('');
+
 }
 
 /**
@@ -392,8 +392,8 @@ function invertCase(str) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`;
+function getStringFromTemplate( /* firstName, lastName */ ) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -406,11 +406,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(value) {
-  const parts = value.split(' ');
-  const firstName = parts[1];
-  const lastName = parts[2].slice(0, -1);
-  return `${firstName} ${lastName}`;
+function extractNameFromTemplate( /* value */ ) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -424,8 +421,8 @@ function extractNameFromTemplate(value) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(str) {
-  return str.slice(1, -1);
+function unbracketTag( /* str */ ) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -443,8 +440,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) {
-  return str.split(';').map(email => email.trim());
+function extractEmails( /* str */ ) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -463,21 +460,8 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  let result = '';
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
-    const code = char.charCodeAt(0);
-
-    if (code >= 65 && code <= 90) { // Uppercase letters
-      result += String.fromCharCode((code - 65 + 13) % 26 + 65);
-    } else if (code >= 97 && code <= 122) { // Lowercase letters
-      result += String.fromCharCode((code - 97 + 13) % 26 + 97);
-    } else {
-      result += char; // Non-alphabetic characters
-    }
-  }
-  return result;
+function encodeToRot13( /* str */ ) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -504,14 +488,8 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
-  const suits = ['♣', '♦', '♥', '♠'];
-  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-
-  const suitIndex = Math.floor(index / 13);
-  const rankIndex = index % 13;
-
-  return `${ranks[rankIndex]}${suits[suitIndex]}`;
+function getCardId( /* value */ ) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
